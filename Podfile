@@ -8,5 +8,7 @@ target 'Peace' do
   # Pods for Peace
 
   pod 'SnapKit', '~> 4.0.0'
-
+  pod 'Moya/ReactiveSwift', '~> 11.0'
+  pod 'NVActivityIndicatorView'
+  
 end

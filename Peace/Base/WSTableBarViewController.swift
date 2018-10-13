@@ -34,7 +34,7 @@ class WSTableBarViewController: UITabBarController {
     
     func setUpOneChildViewController(viewController: UIViewController, image: UIImage, selectedImage: UIImage, title: NSString) {
         
-        let navVC = UINavigationController.init(rootViewController: viewController)
+        let navVC = BaseNavigationController.init(rootViewController: viewController)
         
         navVC.tabBarItem = UITabBarItem.init(title: title as String, image: image, selectedImage: selectedImage.withRenderingMode(.alwaysOriginal))
         

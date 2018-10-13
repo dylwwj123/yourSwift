@@ -33,7 +33,8 @@ class NodeBooksViewController: WSBaseViewController,UITableViewDelegate,UITableV
     }
     
     @objc private func navRightBtnSEL(sender:UIButton?){
-        
+        let nextVC = AddNodeViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     public func numberOfSections(in tableView: UITableView) -> Int{
@@ -87,7 +88,7 @@ class NodeBooksViewController: WSBaseViewController,UITableViewDelegate,UITableV
     lazy var navLeftBtn : UIButton = {
         let btn = UIButton()
         btn.frame = CGRect(x:kScreenWidth, y:0, width:40, height:20)
-        btn.setTitle("编辑", for: .normal)
+        btn.setTitle("搜索", for: .normal)
         btn.setTitleColor(UIColor.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Georgia-Bold", size: 18)
         btn.addTarget(self, action: #selector(navLeftBtnSEL(sender:)), for: .touchUpInside)

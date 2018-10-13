@@ -25,7 +25,12 @@ class WSBaseViewController: UIViewController {
         self.navigationItem.title = title
         
         self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 31/255.0, green: 32/255.0, blue: 37/255.0, alpha: 1.0)
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white;
 
+        let item = UIBarButtonItem(title: "返回", style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem = item
+        
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white,
                                                                         NSAttributedString.Key.font : UIFont(name: "Georgia-Bold", size: 18)!]
     }
