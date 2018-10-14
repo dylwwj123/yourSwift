@@ -7,18 +7,27 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class AddNodeViewController: WSBaseViewController {
+
+    let NetWorkActivityIndicatorView = UIActivityIndicatorView.init(style:.white)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         super.navTitle(title: "添加笔记")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.navRightBtn)
 
+        NetWorkActivityIndicatorView.frame = CGRect.init(x: 40, y: 100, width: 60, height: 60)
+
+        NetWorkActivityIndicatorView.hidesWhenStopped = true
+        
+        self.view.addSubview(NetWorkActivityIndicatorView)
     }
     
     @objc private func navRightBtnSEL(sender:UIButton?){
-        
+        NetWorkActivityIndicatorView.startAnimating()
+//        NetWorkActivityIndicatorView.stopAnimating()
     }
 
     lazy var navRightBtn : UIButton = {
