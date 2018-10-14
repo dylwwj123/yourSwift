@@ -11,6 +11,14 @@ import SnapKit
 
 class NodeBooksViewController: WSBaseViewController,UITableViewDelegate,UITableViewDataSource {
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.arrList = SqliteManager.sharedInstance.selectUserMessage()
+
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         super.navTitle(title: "随心笔记")
@@ -20,6 +28,7 @@ class NodeBooksViewController: WSBaseViewController,UITableViewDelegate,UITableV
         self.view.addSubview(self.tableView);
         self.setSubViewLayout()
         
+        SqliteManager.sharedInstance.createDataBase()
     }
     
     private func setSubViewLayout() {
@@ -29,7 +38,7 @@ class NodeBooksViewController: WSBaseViewController,UITableViewDelegate,UITableV
     }
     
     @objc private func navLeftBtnSEL(sender:UIButton?){
-        
+        SqliteManager.sharedInstance.deleteUserMessage()
     }
     
     @objc private func navRightBtnSEL(sender:UIButton?){
@@ -47,12 +56,12 @@ class NodeBooksViewController: WSBaseViewController,UITableViewDelegate,UITableV
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
       
-        let identifier:String = "NodeBooksViewControllerCell"
+        let identifier : String = "NodeBooksViewControllerCell"
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-        
-        if cell == nil{
-            cell = UITableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: identifier)
+        var cell:NodeBooksTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier)as?NodeBooksTableViewCell
+
+        if cell == nil {
+            cell = NodeBooksTableViewCell(style: .default, reuseIdentifier: identifier)
         }
         
         cell?.selectionStyle = UITableViewCell.SelectionStyle.none
@@ -61,6 +70,10 @@ class NodeBooksViewController: WSBaseViewController,UITableViewDelegate,UITableV
         
         cell?.backgroundColor = UIColor.init(red: 41/255.0, green: 42/255.0, blue: 47/255.0, alpha: 1.0)
         
+        let model : UserMessageModel = self.arrList.object(at: indexPath.row) as! UserMessageModel
+        cell.time_lab.text  = model.books_time
+        cell.title_lab.text = model.books_text
+
         return cell!
     }
     
@@ -77,7 +90,7 @@ class NodeBooksViewController: WSBaseViewController,UITableViewDelegate,UITableV
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+
     }
     
     lazy var arrList: NSMutableArray = {

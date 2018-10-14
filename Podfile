@@ -10,5 +10,7 @@ target 'Peace' do
   pod 'SnapKit', '~> 4.0.0'
   pod 'Moya/ReactiveSwift', '~> 11.0'
   pod 'NVActivityIndicatorView'
+  pod 'IQKeyboardManagerSwift'
+  pod 'FMDB'
   
 end

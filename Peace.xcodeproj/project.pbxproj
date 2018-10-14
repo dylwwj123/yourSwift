@@ -13,6 +13,11 @@
 		1A19ADC5216EEC3000EEB70B /* CasualLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A19ADC4216EEC3000EEB70B /* CasualLookViewController.swift */; };
 		1A5C8BEB2171F3D500484751 /* AddNodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5C8BEA2171F3D500484751 /* AddNodeViewController.swift */; };
 		1A5C8BED2171F84F00484751 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5C8BEC2171F84F00484751 /* BaseNavigationController.swift */; };
+		1A70DB342173288200C038F9 /* PlaceholerTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A70DB332173288200C038F9 /* PlaceholerTextView.swift */; };
+		1A70DB362173351600C038F9 /* SqliteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A70DB352173351600C038F9 /* SqliteManager.swift */; };
+		1A70DB3C2173676300C038F9 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A70DB3B2173676300C038F9 /* libsqlite3.0.tbd */; };
+		1A70DB3E21737A0700C038F9 /* UserMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A70DB3D21737A0700C038F9 /* UserMessageModel.swift */; };
+		1A70DB412173AD4400C038F9 /* NodeBooksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A70DB402173AD4400C038F9 /* NodeBooksTableViewCell.swift */; };
 		1AD95590216DAF6700A14561 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD9558F216DAF6700A14561 /* AppDelegate.swift */; };
 		1AD95597216DAF6800A14561 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AD95596216DAF6800A14561 /* Assets.xcassets */; };
 		1AEA37F4217075E100A87E1F /* Until.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEA37F3217075E100A87E1F /* Until.swift */; };
@@ -28,6 +33,13 @@
 		1A19ADC4216EEC3000EEB70B /* CasualLookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasualLookViewController.swift; sourceTree = "<group>"; };
 		1A5C8BEA2171F3D500484751 /* AddNodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNodeViewController.swift; sourceTree = "<group>"; };
 		1A5C8BEC2171F84F00484751 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		1A70DB332173288200C038F9 /* PlaceholerTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholerTextView.swift; sourceTree = "<group>"; };
+		1A70DB352173351600C038F9 /* SqliteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteManager.swift; sourceTree = "<group>"; };
+		1A70DB3821735BCD00C038F9 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		1A70DB3A217365A600C038F9 /* Peace-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Peace-Bridging-Header.h"; sourceTree = "<group>"; };
+		1A70DB3B2173676300C038F9 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		1A70DB3D21737A0700C038F9 /* UserMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMessageModel.swift; sourceTree = "<group>"; };
+		1A70DB402173AD4400C038F9 /* NodeBooksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeBooksTableViewCell.swift; sourceTree = "<group>"; };
 		1AD9558C216DAF6700A14561 /* Peace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Peace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AD9558F216DAF6700A14561 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AD95596216DAF6800A14561 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -41,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A70DB3C2173676300C038F9 /* libsqlite3.0.tbd in Frameworks */,
 				23497002C91938D6F1E1C08E /* Pods_Peace.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				1A19ADC2216EEBE400EEB70B /* NodeBooksViewController.swift */,
+				1A70DB402173AD4400C038F9 /* NodeBooksTableViewCell.swift */,
 				1A5C8BEA2171F3D500484751 /* AddNodeViewController.swift */,
 			);
 			path = NodeBooks;
@@ -90,6 +104,16 @@
 				1AD9558F216DAF6700A14561 /* AppDelegate.swift */,
 			);
 			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		1A70DB3F21739EF900C038F9 /* DatabaseUntil */ = {
+			isa = PBXGroup;
+			children = (
+				1A70DB352173351600C038F9 /* SqliteManager.swift */,
+				1A70DB3D21737A0700C038F9 /* UserMessageModel.swift */,
+				1A70DB3A217365A600C038F9 /* Peace-Bridging-Header.h */,
+			);
+			path = DatabaseUntil;
 			sourceTree = "<group>";
 		};
 		1AD95583216DAF6700A14561 = {
@@ -117,6 +141,7 @@
 				1A19ADBA216E240800EEB70B /* Base */,
 				1A19ADBF216EEA8600EEB70B /* Modules */,
 				1AEA37F2217075BF00A87E1F /* Until */,
+				1A70DB3F21739EF900C038F9 /* DatabaseUntil */,
 				1AD95596216DAF6800A14561 /* Assets.xcassets */,
 				1AD9559B216DAF6800A14561 /* Info.plist */,
 			);
@@ -127,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				1AEA37F3217075E100A87E1F /* Until.swift */,
+				1A70DB332173288200C038F9 /* PlaceholerTextView.swift */,
 			);
 			path = Until;
 			sourceTree = "<group>";
@@ -143,6 +169,8 @@
 		4EFB2B1330065BD87183524A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A70DB3B2173676300C038F9 /* libsqlite3.0.tbd */,
+				1A70DB3821735BCD00C038F9 /* libsqlite3.tbd */,
 				D18F945A446CA47CD8B288D0 /* Pods_Peace.framework */,
 			);
 			name = Frameworks;
@@ -241,6 +269,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Peace/Pods-Peace-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
@@ -250,6 +280,8 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
@@ -271,10 +303,14 @@
 				1A5C8BED2171F84F00484751 /* BaseNavigationController.swift in Sources */,
 				1AEA37F4217075E100A87E1F /* Until.swift in Sources */,
 				1A19ADC5216EEC3000EEB70B /* CasualLookViewController.swift in Sources */,
+				1A70DB342173288200C038F9 /* PlaceholerTextView.swift in Sources */,
+				1A70DB3E21737A0700C038F9 /* UserMessageModel.swift in Sources */,
 				1A19ADBE216E2D8900EEB70B /* WSBaseViewController.swift in Sources */,
+				1A70DB362173351600C038F9 /* SqliteManager.swift in Sources */,
 				1A19ADBC216E25F100EEB70B /* WSTableBarViewController.swift in Sources */,
 				1A19ADC3216EEBE400EEB70B /* NodeBooksViewController.swift in Sources */,
 				1AD95590216DAF6700A14561 /* AppDelegate.swift in Sources */,
+				1A70DB412173AD4400C038F9 /* NodeBooksTableViewCell.swift in Sources */,
 				1A5C8BEB2171F3D500484751 /* AddNodeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +452,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wws.swift.Peace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Peace/DatabaseUntil/Peace-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -439,6 +476,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wws.swift.Peace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Peace/DatabaseUntil/Peace-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

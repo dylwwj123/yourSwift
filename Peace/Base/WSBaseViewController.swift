@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class WSBaseViewController: UIViewController {
     
@@ -15,6 +16,7 @@ class WSBaseViewController: UIViewController {
         
         self.view.backgroundColor = UIColor.init(red: 41/255.0, green: 42/255.0, blue: 47/255.0, alpha: 1.0)
         
+        self.edgesForExtendedLayout = UIRectEdge(rawValue: 0)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -34,5 +36,19 @@ class WSBaseViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white,
                                                                         NSAttributedString.Key.font : UIFont(name: "Georgia-Bold", size: 18)!]
     }
+    
+    func ActivityIndicatorView(swith : Int){
+        if swith == 0 {
+            ActivityIndicator.stopAnimating()
+        }else if swith == 1 {
+            UIApplication.shared.keyWindow?.addSubview(ActivityIndicator)
+            ActivityIndicator.startAnimating()
+        }
+    }
+
+    lazy var ActivityIndicator : NVActivityIndicatorView = {
+        let nav =  NVActivityIndicatorView(frame:  CGRect.init(x: kScreenWidth/2-25, y: kScreenHeight/2-25, width: 50, height: 50), type: NVActivityIndicatorType(rawValue: 18)!, color: UIColor.white, padding: 0)
+        return nav
+    }()
 
 }

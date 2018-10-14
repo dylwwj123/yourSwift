@@ -7,27 +7,33 @@
 //
 
 import UIKit
-import NVActivityIndicatorView
 
 class AddNodeViewController: WSBaseViewController {
-
-    let NetWorkActivityIndicatorView = UIActivityIndicatorView.init(style:.white)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         super.navTitle(title: "添加笔记")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.navRightBtn)
-
-        NetWorkActivityIndicatorView.frame = CGRect.init(x: 40, y: 100, width: 60, height: 60)
-
-        NetWorkActivityIndicatorView.hidesWhenStopped = true
-        
-        self.view.addSubview(NetWorkActivityIndicatorView)
+    
+        self.view.addSubview(self.textView);
+        self.setSubViewLayout()
+    }
+    
+    private func setSubViewLayout() {
+        self.textView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(15)
+            make.left.equalTo(10)
+            make.right.equalTo(-10)
+            make.height.equalTo(300)
+        }
     }
     
     @objc private func navRightBtnSEL(sender:UIButton?){
-        NetWorkActivityIndicatorView.startAnimating()
-//        NetWorkActivityIndicatorView.stopAnimating()
+//        print(NSString.localizedStringWithFormat("%@", self.textView.text))
+        let model11 = UserMessageModel()
+        model11.books_text = self.textView.text
+        model11.books_time = "xxxx-xx-xx xx:xx:xx"
+        SqliteManager.sharedInstance.saveUserMessageModel(userMessageModel: model11)
     }
 
     lazy var navRightBtn : UIButton = {
@@ -39,5 +45,21 @@ class AddNodeViewController: WSBaseViewController {
         btn.addTarget(self, action: #selector(navRightBtnSEL(sender:)), for: .touchUpInside)
         return btn
     }()
-
+    
+    lazy var textView : UITextView = {
+        let tv = PlaceholerTextView(placeholder: "记录您的美好时刻!", placeholderColor: UIColor.lightGray, frame: CGRect())
+        tv.limitWords = 9999
+        tv.backgroundColor = UIColor.init(red: 31/255.0, green: 32/255.0, blue: 37/255.0, alpha: 1.0)
+        tv.font = UIFont.systemFont(ofSize: 16)
+        tv.textColor = UIColor.white
+        tv.tintColor = UIColor.white
+        tv.layer.shadowColor = UIColor.white.cgColor
+        tv.layer.shadowOpacity = 5
+        tv.layer.shadowOffset = CGSize(width: 0, height: 0)
+        tv.layer.shadowRadius = 5
+        tv.layer.cornerRadius = 10
+        tv.clipsToBounds = false
+        return tv
+    }()
+    
 }

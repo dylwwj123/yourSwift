@@ -1,5 +1,9 @@
 PODS:
   - Alamofire (4.7.3)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - IQKeyboardManagerSwift (6.2.0)
   - Moya/Core (11.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
@@ -15,6 +19,8 @@ PODS:
   - SnapKit (4.0.0)
 
 DEPENDENCIES:
+  - FMDB
+  - IQKeyboardManagerSwift
   - Moya/ReactiveSwift (~> 11.0)
   - NVActivityIndicatorView
   - SnapKit (~> 4.0.0)
@@ -22,6 +28,8 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - FMDB
+    - IQKeyboardManagerSwift
     - Moya
     - NVActivityIndicatorView
     - ReactiveSwift
@@ -30,12 +38,14 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   NVActivityIndicatorView: ec7440a57af2450319d3a4181cca7da6fc127064
   ReactiveSwift: 5b26d2e988fe0eed2daf48c4054d1de74db50184
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: c433eb4605f381b7664f67b24fc7f7e00cbafa23
+PODFILE CHECKSUM: d0d67ec5886376846201d172f4f6e2e5e19a063e
 
 COCOAPODS: 1.5.3
