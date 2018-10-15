@@ -7,26 +7,26 @@
 //
 
 import UIKit
-import SnapKit
 
-class NodeBooksViewController: WSBaseViewController,UITableViewDelegate,UITableViewDataSource {
+class NodeBooksViewController: WSBaseViewController,UITableViewDelegate,UITableViewDataSource,AddNodecallBackDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         super.navTitle(title: "随心笔记")
         self.navigationItem.leftBarButtonItem  = UIBarButtonItem(customView: self.navLeftBtn)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.navRightBtn)
-    
+        
         self.view.addSubview(self.tableView);
         self.setSubViewLayout()
         
         SqliteManager.sharedInstance.createDataBase()
-        self.databaseUpload()
-    }
-    
-    private func databaseUpload() {
-        self.arrList = SqliteManager.sharedInstance.selectUserMessage()
-        self.tableView.reloadData()
+//        self.databaseUpload()
+        
+        self.tableView.gtm_addRefreshHeaderView(refreshHeader: QQVideoRefreshHeader()) {
+            [weak self] in
+            self?.databaseUpload()
+        }
+        self.tableView.triggerRefreshing()
     }
     
     private func setSubViewLayout() {
@@ -35,12 +35,30 @@ class NodeBooksViewController: WSBaseViewController,UITableViewDelegate,UITableV
         }
     }
     
+    private func databaseUpload() {
+        self.arrList = SqliteManager.sharedInstance.selectUserMessage()
+        perform(#selector(endRefresing), with: nil, afterDelay: 1)
+    }
+    
+    @objc func endRefresing() {
+        self.tableView.endRefreshing(isSuccess: true)
+        self.tableView.reloadData()
+        self.ActivityIndicatorView(swith: 0)
+    }
+    
+    func AddNodecallbackDelegatefuc(backMsg: String) {
+        print(backMsg)
+        self.ActivityIndicatorView(swith: 1)
+        self.databaseUpload()
+    }
+    
     @objc private func navLeftBtnSEL(sender:UIButton?){
         SqliteManager.sharedInstance.deleteUserMessage()
     }
     
     @objc private func navRightBtnSEL(sender:UIButton?){
         let nextVC = AddNodeViewController()
+        nextVC.delegate=self
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
@@ -98,7 +116,7 @@ class NodeBooksViewController: WSBaseViewController,UITableViewDelegate,UITableV
     
     lazy var navLeftBtn : UIButton = {
         let btn = UIButton()
-        btn.frame = CGRect(x:kScreenWidth, y:0, width:40, height:20)
+        btn.frame = CGRect(x:0, y:0, width:40, height:20)
         btn.setTitle("搜索", for: .normal)
         btn.setTitleColor(UIColor.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Georgia-Bold", size: 18)

@@ -50,7 +50,7 @@ class SqliteManager: NSObject {
                     model.books_ID = rs.string(forColumn: "books_ID")!
                     model.books_text = rs.string(forColumn: "books_text")!
                     model.books_time = rs.string(forColumn: "books_time")!
-                    modelArr.add(model)
+                    modelArr.insert(model, at: 0)
                 }
                 
                 dataBase.close()

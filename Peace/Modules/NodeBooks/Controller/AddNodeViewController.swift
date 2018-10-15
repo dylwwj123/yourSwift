@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol AddNodecallBackDelegate {
+    func AddNodecallbackDelegatefuc(backMsg:String)
+}
+
 class AddNodeViewController: WSBaseViewController {
 
+    var delegate:AddNodecallBackDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         super.navTitle(title: "添加笔记")
@@ -30,10 +36,20 @@ class AddNodeViewController: WSBaseViewController {
     
     @objc private func navRightBtnSEL(sender:UIButton?){
 //        print(NSString.localizedStringWithFormat("%@", self.textView.text))
+        if self.textView.text.isEmpty {
+            return
+        }
+        
         let model11 = UserMessageModel()
         model11.books_text = self.textView.text
-        model11.books_time = "xxxx-xx-xx xx:xx:xx"
+        model11.books_time = self.nowDataTime()
         SqliteManager.sharedInstance.saveUserMessageModel(userMessageModel: model11)
+        
+        if((delegate) != nil){
+            delegate?.AddNodecallbackDelegatefuc(backMsg: "backMsg---by delegate")
+        }
+                
+        self.navigationController?.popViewController(animated: true)
     }
 
     lazy var navRightBtn : UIButton = {

@@ -50,14 +50,14 @@ class NodeBooksTableViewCell: UITableViewCell {
     lazy var time_lab : UILabel = {
         let lab = UILabel()
         lab.textColor = UIColor.white
-        lab.font = UIFont(name: "Georgia-Bold", size: 15)
+        lab.font = UIFont(name: "Geeza Pro", size: 15)
         return lab
     }()
 
     lazy var title_lab : UILabel = {
         let lab = UILabel()
         lab.textColor = UIColor.white
-        lab.font = UIFont(name: "Georgia-Bold", size: 15)
+        lab.font = UIFont(name: "Geeza Pro", size: 15)
         return lab
     }()
 

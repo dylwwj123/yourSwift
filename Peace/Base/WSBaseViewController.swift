@@ -45,6 +45,14 @@ class WSBaseViewController: UIViewController {
             ActivityIndicator.startAnimating()
         }
     }
+    
+    func nowDataTime() -> String {
+        let date = NSDate()
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let strNowTime = timeFormatter.string(from: date as Date) as String
+        return strNowTime
+    }
 
     lazy var ActivityIndicator : NVActivityIndicatorView = {
         let nav =  NVActivityIndicatorView(frame:  CGRect.init(x: kScreenWidth/2-25, y: kScreenHeight/2-25, width: 50, height: 50), type: NVActivityIndicatorType(rawValue: 18)!, color: UIColor.white, padding: 0)
