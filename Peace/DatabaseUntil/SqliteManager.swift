@@ -15,15 +15,13 @@ class SqliteManager: NSObject {
     var pathToDataBase:String!
 
     var dataBase:FMDatabase!
-
-    override init() {
-        super.init()
+    
+    //创建数据库和表
+    func createDataBase() {
+        
         let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
         pathToDataBase = documentDirectory.appending("/dataBase.sqlite")
-        createDataBase()
-    }
-    
-    func createDataBase() {
+        
         dataBase = FMDatabase(path: pathToDataBase)
         
         if dataBase.open() {
@@ -36,7 +34,7 @@ class SqliteManager: NSObject {
         }
     }
 
-    //查询
+    // 查询所有
     func selectUserMessage() -> NSMutableArray {
 
         let modelArr = NSMutableArray()
@@ -65,7 +63,7 @@ class SqliteManager: NSObject {
         return modelArr
     }
 
-    //增加
+    // 增加
     func saveUserMessageModel(userMessageModel:UserMessageModel) {
         
         if dataBase.open() {
@@ -87,11 +85,10 @@ class SqliteManager: NSObject {
                 dataBase.close()
                 
             }
-            
         }
     }
     
-    //删除
+    // 删除所有
     func deleteUserMessage() {
         if dataBase.open() {
             let parameters = [""] as [Any]

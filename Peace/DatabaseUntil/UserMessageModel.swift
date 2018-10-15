@@ -12,5 +12,4 @@ class UserMessageModel: NSObject {
     var books_ID : String!
     var books_text : String!
     var books_time : String!
-    
 }

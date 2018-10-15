@@ -10,14 +10,6 @@ import UIKit
 import SnapKit
 
 class NodeBooksViewController: WSBaseViewController,UITableViewDelegate,UITableViewDataSource {
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        self.arrList = SqliteManager.sharedInstance.selectUserMessage()
-
-        self.tableView.reloadData()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +21,12 @@ class NodeBooksViewController: WSBaseViewController,UITableViewDelegate,UITableV
         self.setSubViewLayout()
         
         SqliteManager.sharedInstance.createDataBase()
+        self.databaseUpload()
+    }
+    
+    private func databaseUpload() {
+        self.arrList = SqliteManager.sharedInstance.selectUserMessage()
+        self.tableView.reloadData()
     }
     
     private func setSubViewLayout() {

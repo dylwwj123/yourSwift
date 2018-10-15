@@ -12,5 +12,6 @@ target 'Peace' do
   pod 'NVActivityIndicatorView'
   pod 'IQKeyboardManagerSwift'
   pod 'FMDB'
+  pod 'GTMRefresh'
   
 end
