@@ -14,7 +14,7 @@ class WSBaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.init(red: 41/255.0, green: 42/255.0, blue: 47/255.0, alpha: 1.0)
+        self.view.backgroundColor = UIColor.black
         
         self.edgesForExtendedLayout = UIRectEdge(rawValue: 0)
     }
@@ -26,7 +26,9 @@ class WSBaseViewController: UIViewController {
     func navTitle(title : String){
         self.navigationItem.title = title
         
-        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 31/255.0, green: 32/255.0, blue: 37/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = UIColor.clear
+        
+        self.navigationController?.navigationBar.isTranslucent = true
         
         self.navigationController?.navigationBar.tintColor = UIColor.white;
 
@@ -34,7 +36,7 @@ class WSBaseViewController: UIViewController {
         self.navigationItem.backBarButtonItem = item
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white,
-                                                                        NSAttributedString.Key.font : UIFont(name: "Georgia-Bold", size: 18)!]
+                                                                        NSAttributedString.Key.font : UIFont(name: "Georgia-Bold", size: 16)!]
     }
     
     func ActivityIndicatorView(swith : Int){

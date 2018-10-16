@@ -18,9 +18,9 @@ class WSTableBarViewController: UITabBarController {
 
         self.tabBar.tintColor = UIColor.white
         
-        self.tabBar.isTranslucent = false
-        self.tabBar.barTintColor = UIColor.init(red: 31/255.0, green: 32/255.0, blue: 37/255.0, alpha: 1.0)
-        
+        self.tabBar.isTranslucent = true
+        self.tabBar.barTintColor = UIColor.clear
+    
         self.setUpAllChildViewController()
     }
     
@@ -38,6 +38,8 @@ class WSTableBarViewController: UITabBarController {
         
         navVC.tabBarItem = UITabBarItem.init(title: title as String, image: image, selectedImage: selectedImage.withRenderingMode(.alwaysOriginal))
         
+        navVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -3)
+
         self.addChild(navVC)
     }
     

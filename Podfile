@@ -13,5 +13,6 @@ target 'Peace' do
   pod 'IQKeyboardManagerSwift'
   pod 'FMDB'
   pod 'GTMRefresh'
+  pod 'DNSPageView'
   
 end

@@ -27,10 +27,10 @@ class AddNodeViewController: WSBaseViewController {
     
     private func setSubViewLayout() {
         self.textView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(15)
-            make.left.equalTo(10)
-            make.right.equalTo(-10)
-            make.height.equalTo(300)
+            make.top.equalTo(0)
+            make.left.equalTo(0)
+            make.right.equalTo(0)
+            make.height.equalTo(200)
         }
     }
     
@@ -57,7 +57,7 @@ class AddNodeViewController: WSBaseViewController {
         btn.frame = CGRect(x:0, y:0, width:40, height:20)
         btn.setTitle("确定", for: .normal)
         btn.setTitleColor(UIColor.white, for: .normal)
-        btn.titleLabel?.font = UIFont(name: "Georgia-Bold", size: 18)
+        btn.titleLabel?.font = UIFont(name: "Georgia-Bold", size: 16)
         btn.addTarget(self, action: #selector(navRightBtnSEL(sender:)), for: .touchUpInside)
         return btn
     }()
@@ -74,7 +74,7 @@ class AddNodeViewController: WSBaseViewController {
         tv.layer.shadowOffset = CGSize(width: 0, height: 0)
         tv.layer.shadowRadius = 5
         tv.layer.cornerRadius = 10
-        tv.clipsToBounds = false
+//        tv.clipsToBounds = false
         return tv
     }()
     
